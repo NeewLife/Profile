@@ -1,4 +1,3 @@
-package pokemon;
 
 public class bossSet3 extends pokemon{
 	
@@ -7,12 +6,12 @@ public class bossSet3 extends pokemon{
 
 		super.maxHp = maxHp;
 		super.presentHp = maxHp;
-
+	
 		super.attack = attack;
-
+		
 		super.defence = defence;
 		super.presentDefence = defence;
-
+		
 		super.type = type;
 	} 
 }

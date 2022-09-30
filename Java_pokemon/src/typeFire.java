@@ -1,9 +1,8 @@
-package pokemon;
-public class typeWater extends pokemon{
+public class typeFire extends pokemon{
 
-	public typeWater(String name,int maxHp,int attack, int defence, int maxMp){
+	public typeFire(String name,int maxHp,int attack, int defence, int maxMp){
 		super(name);
-		super.type = "¹°";
+		super.type = "ë¶ˆ";
 		
 		super.maxHp = maxHp;
 		super.presentHp = maxHp;
@@ -18,40 +17,39 @@ public class typeWater extends pokemon{
 		
 		
 	} 
-	
-	//½ºÅ³9
-	public void ½ºÅ³9(pokemon enemy){
+	//ìŠ¤í‚¬3
+	public void ìŠ¤í‚¬3(pokemon enemy){
 		String goodBad = pokemonType(enemy);
 		int damage = (int) (super.attack*1.2);
 		int costMp = 30;
 		
-		if(goodBad == "ÁÁÀ½") {
+		if(goodBad == "ì¢‹ìŒ") {
 			 damage = (int)( damage * 1.3);
 		}else {
 			 damage = (int) (damage  * 0.8);
 		}
 			
-		System.out.println("¹°´ëÆ÷ ½ºÅ³À» »ç¿ëÇß´Ù!");
+		System.out.println("ë¶ˆê¸°ë‘¥ ìŠ¤í‚¬ì„ ì‚¬ìš©í–ˆë‹¤!");
 		enemy.presentHp = enemy.presentHp - (damage - enemy.defence);
 		super.presentMp = super.presentMp-costMp;
 	}
 	
-	//½ºÅ³10
-	public void ½ºÅ³10(pokemon enemy){
+	//ìŠ¤í‚¬4
+	public void ìŠ¤í‚¬4(pokemon enemy){
 		String goodBad = pokemonType(enemy);
 		
 		int damage = (int) (super.attack*1.5);
 		int costMp = 50;
 		
-		if(goodBad == "ÁÁÀ½") {
+		if(goodBad == "ì¢‹ìŒ") {
 			 damage = (int) (damage  * 1.3);
 		}else {
 			 damage = (int) (damage  * 0.8);
 		}
 				
-		System.out.println("°­È­µÈ ¹°´ëÆ÷ ½ºÅ³À» »ç¿ëÇß´Ù.");
+		System.out.println("ê°•í™”ëœ ë¶ˆê¸°ë‘¥ ìŠ¤í‚¬ì„ ì‚¬ìš©í–ˆë‹¤.");
 		enemy.presentHp = enemy.presentHp - (damage - enemy.defence);
 		super.presentMp = super.presentMp-costMp;
 	}
-	
+
 }
