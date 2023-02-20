@@ -1,12 +1,12 @@
 ## 학력
 - 서울성남고등학교 졸업
 - 명지전문대 부동산경영과 졸업
----
+
 ## 자격증
 - 공인중개사
 - 도배 기능사
 - 1종 보통 운전 면허
----
+
 ## 아르바이트
 - 유니클로
   - 기간 : 2015.02 ~ 2016.5
@@ -32,13 +32,13 @@
   - 기간 : 2021.12 ~ 2022.05
   - 내용 : 물품 발주 등 사무보조 및 재고 관리
 
----
+
 ## 대외활동
 - AI데이터플랫폼을 활용한 빅데이터 분석전문가 과정 3기
   - 기간 : 2022.06 ~ 2022.12
   - 기관 : 휴먼교육센터
   - 내용 : Python 기반 데이터 분석 및 챗봇만들기 프로젝트, JAVA 기반 웹 개발 및 프로젝트
----
+
 
  ## 프로젝트
  ### 주택청약 챗봇 프로젝트
@@ -59,7 +59,7 @@
 - [PDF](https://github.com/NeewLife/Profile/blob/main/kakao_chatbot/%EC%B5%9C%EC%A2%85%EB%B0%9C%ED%91%9C_PPT.pdf)
 - [시연영상](https://www.youtube.com/watch?v=b3-sZf48M7U)
 - [메인코드](https://github.com/NeewLife/Profile/blob/main/kakao_chatbot/app/main.py)
----
+
  ### MBTI별 휴식방법 및 채팅 프로젝트
 - 폴더명 : [kakao_chatbot](https://github.com/NeewLife/Profile/tree/main/ChatProject)
 - 기간 : 2022년 10월 24일 ~ 2022년 12월 02일
