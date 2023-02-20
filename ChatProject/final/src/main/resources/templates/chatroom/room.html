@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="ko" xmlns:v-on="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="layout/basic">
+<head>
+<title>채팅방</title>
+<meta charset="utf-8">
+
+
+<!-- header에서 들고온 link -->
+<link rel="stylesheet" th:href="@{/css/style2.css}" />
+<link rel="stylesheet"
+	th:href="@{/plugin/mCustomScrollbar/jquery.mCustomScrollbar.min.css}" />
+<style>
+[v-cloak] {
+	display: none;
+}
+</style>
+</head>
+
+<body>
+
+	<div class="fixed-navbar">
+		<div>
+			<th:block layout:fragment="title">
+		
+			</th:block>
+		</div>
+	</div>
+
+	<!-- 위에는 파란색 대가리 부분을 의미한다!     -->
+
+	<div id="wrapper">
+			<div class="row row-inline-block small-spacing">
+				<div class="col-xs-12">
+					<div class="box-content">
+						<div class="clearfix">
+							<h4 class="box-title pull-left"></h4>
+						</div>
+						<th:block layout:fragment="content">
+							<table class="table table-hover" >
+								<thead>
+									<tr>
+
+										<th>제목</th>
+										<th>작성자</th>
+										<th>등록일</th>
+										
+										<th>참여인원</th>
+										
+									</tr>
+								</thead>
+
+								<tbody id="app" v-cloak>
+									<tr v-for="room in chatrooms" v-bind:key="room.roomId"
+										v-on:click="enterRoom(room.roomId, room.roomMaker)">
+
+										<th>{{room.roomName}}</th>
+										<th>{{room.roomMaker}}</th>
+										<th>{{room.createdDate}}</th>
+										
+										<th>{{room.participant}}</th>
+										
+									</tr>
+								</tbody>
+							</table>
+						</th:block>
+
+						<th:block layout:fragment="paging">
+
+
+							<a class="btn btn-sm btn-outline-secondary"
+								th:href="@{/chatroom/makeroom}">방만들기</a>
+						</th:block>
+					</div>
+
+					<th:block layout:fragment="add-content"></th:block>
+				</div>
+			</div>
+
+			
+
+					<footer class="footer">
+						<ul class="list-inline">
+							<li></li>
+						</ul>
+					</footer>
+		
+			</div>
+
+</body>
+<th:block layout:fragment="script">
+			<!-- JavaScript -->
+			<script src="/webjars/vue/2.5.16/dist/vue.min.js"></script>
+			<script src="/webjars/axios/0.17.1/dist/axios.min.js"></script>
+			<script>
+			
+			   window.onpageshow = function(event) {
+			       if ( event.persisted || (window.performance && window.performance.navigation.type == 2)) {
+			    	 	
+			    	 	this.roomId=localStorage.getItem('wschatroom.roomId');
+			    	 	axios.get("/chatroom/room/exit/"+this.roomId)
+		            	.then(
+		                        response => {                                             
+		                            console.log(response.data);
+		                            if(response.data ==0){
+		                            	//남아 있는 사람이 없기에 방을 폭파해야하는 경우
+		                            	
+		                            	var params = new URLSearchParams();
+		                                params.append("name",this.roomId);
+		                                              
+		                                axios.post("/chatroom/eraseit", params)               
+		                                .then(
+		                                        response => {		                                                                                                     	                                                               
+		                                                window.location.href="/chatroom/room"                           
+		                                        }
+		                                    )
+		                                    .catch( response => { alert("삭제 실패"); } ); 
+		                            }
+		                            else{
+		                            	//남아 있는 사람이 있기에 그냥 나간다.
+		                            	/* alert("나만 조용히 나갑니다"); */
+		                            	window.location.href="/chatroom/room"    
+		                            }
+		                                                          
+		                        }
+		                    )
+		                    .catch( response => { alert("입장 실패"); } );
+			       }
+			       else{
+			        
+			       }
+			   }					
+			
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            room_name : '',
+            chatrooms: [] //이곳의 chatrooms가 list를 생성할 때 쓰이는 chatrooms이다.
+    
+        },
+        created() {
+            this.findAllRoom();
+        },
+        methods: {
+            findAllRoom: function() {
+            	//생성되어 있는 모든 방 목록을 가져오는 함수
+                axios.get('/chatroom/rooms').then(response => { this.chatrooms = response.data; }); //controller의 chatrooms/rooms 를 통해 모든 방을 가져온다.
+            },
+            enterRoom: function(roomId,roomMaker) {
+            	
+                var sender = '[(${info.userName})]';
+                if(sender !== "") {
+                    localStorage.setItem('wschatroom.sender',sender);
+                    localStorage.setItem('wschatroom.roomId',roomId);
+                    localStorage.setItem('wschatroom.roomMaker',roomMaker); // roomMaker값 넣기 */
+                    location.href="/chatroom/room/enter/"+roomId;
+                    
+                }
+            }
+        }
+    });
+</script>
+</th:block>
+
+</html>
+
+
+
+

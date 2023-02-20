@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>MBTI검사</title>
+<script src="https://code.jquery.com/jquery-3.6.0.js"
+	crossorigin="anonymous"></script>
+</head>
+<body>
+	<h1>MBTI 검사지</h1>
+<form id="mbtiForm" method="post">
+
+<!-- E냐 I냐 -->
+	#1 다양한 활동을 선호하는 편이다.
+	<br>
+	<input name="one" type="checkbox" value="1"
+	onclick="doOpenCheck1(this);">1
+	
+	<input name="one" type="checkbox" value="2"
+	onclick="doOpenCheck1(this);">2
+
+	<input name="one" type="checkbox" value="3"
+	onclick="doOpenCheck1(this);">3
+	
+	<input name="one" type="checkbox" value="4"
+	onclick="doOpenCheck1(this);">4
+
+	<input name="one" type="checkbox" value="5"
+	onclick="doOpenCheck1(this);">5
+		<br>	
+	<br>
+	<br>
+	
+	#2 밖에서 활동하기 좋아하는 편이다.
+	<br>
+	<input name="two" type="checkbox" value="1"
+		onclick="doOpenCheck2(this);">1
+	
+	<input name="two" type="checkbox" value="2"
+		onclick="doOpenCheck2(this);">2
+
+	<input name="two" type="checkbox" value="3"
+		onclick="doOpenCheck2(this);">3
+		
+	<input name="two" type="checkbox" value="4"
+		onclick="doOpenCheck2(this);">4
+
+	<input name="two" type="checkbox" value="5"
+		onclick="doOpenCheck2(this);">5
+		<br>	
+	<br>
+	<br>
+	
+	#3 말을 많이 하는 편이다.
+	<br>
+	<input name="three" type="checkbox" value="1"
+		onclick="doOpenCheck3(this);">1
+	
+	<input name="three" type="checkbox" value="2"
+		onclick="doOpenCheck3(this);">2
+
+	<input name="three" type="checkbox" value="3"
+		onclick="doOpenCheck3(this);">3
+		
+	<input name="three" type="checkbox" value="4"
+	onclick="doOpenCheck3(this);">4
+
+	<input name="three" type="checkbox" value="5"
+	onclick="doOpenCheck3(this);">5
+		<br>	
+	<br>
+	<br>
+	
+	#4 성급하다는 말을 듣는 편이다.
+	<br>
+	<input name="four" type="checkbox" value="1"
+		onclick="doOpenCheck4(this);">1
+	
+	<input name="four" type="checkbox" value="2"
+		onclick="doOpenCheck4(this);">2
+
+	<input name="four" type="checkbox" value="3"
+		onclick="doOpenCheck4(this);">3
+		
+	<input name="four" type="checkbox" value="4"
+	onclick="doOpenCheck4(this);">4
+
+	<input name="four" type="checkbox" value="5"
+	onclick="doOpenCheck4(this);">5
+		<br>	
+	<br>
+	<br>
+	
+	#5 감정을 솔직하게 표현하는 편이다.
+	<br>
+	<input name="five" type="checkbox" value="1"
+		onclick="doOpenCheck5(this);">1
+	
+	<input name="five" type="checkbox" value="2"
+		onclick="doOpenCheck5(this);">2
+
+	<input name="five" type="checkbox" value="3"
+		onclick="doOpenCheck5(this);">3
+		
+	<input name="five" type="checkbox" value="4"
+	onclick="doOpenCheck5(this);">4
+
+	<input name="five" type="checkbox" value="5"
+	onclick="doOpenCheck5(this);">5
+		<br>	
+	<br>
+	<br>
+	
+	#6 폭넓게 친구를 사귀는 편이다.
+	<br>
+	<input name="six" type="checkbox" value="1"
+		onclick="doOpenCheck6(this);">1
+	
+	<input name="six" type="checkbox" value="2"
+		onclick="doOpenCheck6(this);">2
+
+	<input name="six" type="checkbox" value="3"
+		onclick="doOpenCheck6(this);">3
+		
+	<input name="six" type="checkbox" value="4"
+	onclick="doOpenCheck6(this);">4
+
+	<input name="six" type="checkbox" value="5"
+	onclick="doOpenCheck6(this);">5
+		<br>	
+	<br>
+	<br>
+	
+	#7 사람들과 만나는 것을 즐기는 편이다.
+	<br>
+	<input name="seven" type="checkbox" value="1"
+		onclick="doOpenCheck7(this);">1
+	
+	<input name="seven" type="checkbox" value="2"
+		onclick="doOpenCheck7(this);">2
+
+	<input name="seven" type="checkbox" value="3"
+		onclick="doOpenCheck7(this);">3
+		
+	<input name="seven" type="checkbox" value="4"
+	onclick="doOpenCheck7(this);">4
+
+	<input name="seven" type="checkbox" value="5"
+	onclick="doOpenCheck7(this);">5
+		<br>	
+	<br>
+	<br>
+	
+
+<!-- S냐 N이냐 -->
+
+	#8 경험에 의존하는 편이다.
+	<br>
+	<input name="eight" type="checkbox" value="1"
+	onclick="doOpenCheck8(this);">1
+	
+	<input name="eight" type="checkbox" value="2"
+	onclick="doOpenCheck8(this);">2
+
+	<input name="eight" type="checkbox" value="3"
+	onclick="doOpenCheck8(this);">3
+	
+	<input name="eight" type="checkbox" value="4"
+	onclick="doOpenCheck8(this);">4
+
+	<input name="eight" type="checkbox" value="5"
+	onclick="doOpenCheck8(this);">5
+		<br>	
+	<br>
+	<br>
+	
+	#9 현실적인 편이다.
+	<br>
+	<input name="nine" type="checkbox" value="1"
+		onclick="doOpenCheck9(this);">1
+	
+	<input name="nine" type="checkbox" value="2"
+		onclick="doOpenCheck9(this);">2
+
+	<input name="nine" type="checkbox" value="3"
+		onclick="doOpenCheck9(this);">3
+	
+	<input name="nine" type="checkbox" value="4"
+	onclick="doOpenCheck9(this);">4
+
+	<input name="nine" type="checkbox" value="5"
+	onclick="doOpenCheck9(this);">5
+		<br>	
+	<br>
+	<br>
+	
+	#10 확실한 것을 선호하는 편이다.
+	<br>
+	<input name="ten" type="checkbox" value="1"
+		onclick="doOpenCheck10(this);">1
+	
+	<input name="ten" type="checkbox" value="2"
+		onclick="doOpenCheck10(this);">2
+
+	<input name="ten" type="checkbox" value="3"
+		onclick="doOpenCheck10(this);">3
+		
+	<input name="ten" type="checkbox" value="4"
+	onclick="doOpenCheck10(this);">4
+
+	<input name="ten" type="checkbox" value="5"
+	onclick="doOpenCheck10(this);">5
+		<br>	
+	<br>
+	<br>
+	
+	#11 확인된 사실을 중요시하는 편이다.
+	<br>
+	<input name="eleven" type="checkbox" value="1"
+		onclick="doOpenCheck11(this);">1
+	
+	<input name="eleven" type="checkbox" value="2"
+		onclick="doOpenCheck11(this);">2
+
+	<input name="eleven" type="checkbox" value="3"
+		onclick="doOpenCheck11(this);">3
+		
+	<input name="eleven" type="checkbox" value="4"
+	onclick="doOpenCheck11(this);">4
+
+	<input name="eleven" type="checkbox" value="5"
+	onclick="doOpenCheck11(this);">5
+		<br>	
+	<br>
+	<br>
+	
+	#12 세부적인 것을 따지는 편이다.
+	<br>
+	<input name="twelve" type="checkbox" value="1"
+		onclick="doOpenCheck12(this);">1
+	
+	<input name="twelve" type="checkbox" value="2"
+		onclick="doOpenCheck12(this);">2
+
+	<input name="twelve" type="checkbox" value="3"
+		onclick="doOpenCheck12(this);">3
+		
+	<input name="twelve" type="checkbox" value="4"
+	onclick="doOpenCheck12(this);">4
+
+	<input name="twelve" type="checkbox" value="5"
+	onclick="doOpenCheck12(this);">5
+		<br>	
+	<br>
+	<br>
+	
+	#13 확실한 데이터를 믿는 편이다.
+	<br>
+	<input name="thirteen" type="checkbox" value="1"
+		onclick="doOpenCheck13(this);">1
+	
+	<input name="thirteen" type="checkbox" value="2"
+		onclick="doOpenCheck13(this);">2
+
+	<input name="thirteen" type="checkbox" value="3"
+		onclick="doOpenCheck13(this);">3
+		
+	<input name="thirteen" type="checkbox" value="4"
+	onclick="doOpenCheck13(this);">4
+
+	<input name="thirteen" type="checkbox" value="5"
+	onclick="doOpenCheck13(this);">5
+		<br>	
+	<br>
+	<br>
+	
+	#14 현실에 대한 개선을 선호하는 편이다.
+	<br>
+	<input name="fourteen" type="checkbox" value="1"
+		onclick="doOpenCheck14(this);">1
+	
+	<input name="fourteen" type="checkbox" value="2"
+		onclick="doOpenCheck14(this);">2
+
+	<input name="fourteen" type="checkbox" value="3"
+		onclick="doOpenCheck14(this);">3
+		
+	<input name="fourteen" type="checkbox" value="4"
+	onclick="doOpenCheck14(this);">4
+
+	<input name="fourteen" type="checkbox" value="5"
+	onclick="doOpenCheck14(this);">5
+		<br>	
+	<br>
+	<br>
+	
+	<!-- T냐 F이냐 -->
+
+	#15 원칙대로 하는 편이다.
+	<br>
+	<input name="fifteen" type="checkbox" value="1"
+	onclick="doOpenCheck15(this);">1
+	
+	<input name="fifteen" type="checkbox" value="2"
+	onclick="doOpenCheck15(this);">2
+
+	<input name="fifteen" type="checkbox" value="3"
+	onclick="doOpenCheck15(this);">3
+	
+	<input name="fifteen" type="checkbox" value="4"
+	onclick="doOpenCheck15(this);">4
+
+	<input name="fifteen" type="checkbox" value="5"
+	onclick="doOpenCheck15(this);">5
+		<br>	
+	<br>
+	<br>
+	
+	#16 내 주장대로 하는 편이다.
+	<br>
+	<input name="sixteen" type="checkbox" value="1"
+		onclick="doOpenCheck16(this);">1
+	
+	<input name="sixteen" type="checkbox" value="2"
+		onclick="doOpenCheck16(this);">2
+
+	<input name="sixteen" type="checkbox" value="3"
+		onclick="doOpenCheck16(this);">3
+		
+	<input name="sixteen" type="checkbox" value="4"
+	onclick="doOpenCheck16(this);">4
+
+	<input name="sixteen" type="checkbox" value="5"
+	onclick="doOpenCheck16(this);">5
+		<br>	
+	<br>
+	<br>
+	
+	#17 일 위주로 하는 편이다.
+	<br>
+	<input name="seventeen" type="checkbox" value="1"
+		onclick="doOpenCheck17(this);">1
+	
+	<input name="seventeen" type="checkbox" value="2"
+		onclick="doOpenCheck17(this);">2
+
+	<input name="seventeen" type="checkbox" value="3"
+		onclick="doOpenCheck17(this);">3
+		
+	<input name="seventeen" type="checkbox" value="4"
+	onclick="doOpenCheck17(this);">4
+
+	<input name="seventeen" type="checkbox" value="5"
+	onclick="doOpenCheck17(this);">5
+		<br>	
+	<br>
+	<br>
+	
+	#18 냉철한 이성으로 판단하는 편이다.
+	<br>
+	<input name="eightteen" type="checkbox" value="1"
+		onclick="doOpenCheck18(this);">1
+	
+	<input name="eightteen" type="checkbox" value="2"
+		onclick="doOpenCheck18(this);">2
+
+	<input name="eightteen" type="checkbox" value="3"
+		onclick="doOpenCheck18(this);">3
+		
+	<input name="eightteen" type="checkbox" value="4"
+	onclick="doOpenCheck18(this);">4
+
+	<input name="eightteen" type="checkbox" value="5"
+	onclick="doOpenCheck18(this);">5
+		<br>	
+	<br>
+	<br>
+	
+	#19 냉철하다는 말을 듣는 편이다.
+	<br>
+	<input name="nineteen" type="checkbox" value="1"
+		onclick="doOpenCheck19(this);">1
+	
+	<input name="nineteen" type="checkbox" value="2"
+		onclick="doOpenCheck19(this);">2
+
+	<input name="nineteen" type="checkbox" value="3"
+		onclick="doOpenCheck19(this);">3
+		
+	<input name="nineteen" type="checkbox" value="4"
+	onclick="doOpenCheck19(this);">4
+
+	<input name="nineteen" type="checkbox" value="5"
+	onclick="doOpenCheck19(this);">5
+		<br>	
+	<br>
+	<br>
+	
+	#20 따질 것은 따지는 편이다.
+	<br>
+	<input name="twenty" type="checkbox" value="1"
+		onclick="doOpenCheck20(this);">1
+	
+	<input name="twenty" type="checkbox" value="2"
+		onclick="doOpenCheck20(this);">2
+
+	<input name="twenty" type="checkbox" value="3"
+		onclick="doOpenCheck20(this);">3
+		
+	<input name="twenty" type="checkbox" value="4"
+	onclick="doOpenCheck20(this);">4
+
+	<input name="twenty" type="checkbox" value="5"
+	onclick="doOpenCheck20(this);">5
+		<br>	
+	<br>
+	<br>
+	
+	#21 결과를 중요하게 여기는 편이다.
+	<br>
+	<input name="twenty_one" type="checkbox" value="1"
+		onclick="doOpenCheck21(this);">1
+	
+	<input name="twenty_one" type="checkbox" value="2"
+		onclick="doOpenCheck21(this);">2
+
+	<input name="twenty_one" type="checkbox" value="3"
+		onclick="doOpenCheck21(this);">3
+		
+	<input name="twenty_one" type="checkbox" value="4"
+	onclick="doOpenCheck21(this);">4
+
+	<input name="twenty_one" type="checkbox" value="5"
+	onclick="doOpenCheck21(this);">5
+		<br>	
+	<br>
+	<br>
+
+	<!-- J냐 P이냐 -->
+
+	#22 사전에 계획하는 편이다.
+	<br>
+	<input name="twenty_two" type="checkbox" value="1"
+	onclick="doOpenCheck22(this);">1
+	
+	<input name="twenty_two" type="checkbox" value="2"
+	onclick="doOpenCheck22(this);">2
+
+	<input name="twenty_two" type="checkbox" value="3"
+	onclick="doOpenCheck22(this);">3
+	
+	<input name="twenty_two" type="checkbox" value="4"
+	onclick="doOpenCheck22(this);">4
+
+	<input name="twenty_two" type="checkbox" value="5"
+	onclick="doOpenCheck22(this);">5
+		<br>	
+	<br>
+	<br>
+	
+	#23 계획대로 하는 편이다.
+	<br>
+	<input name="twenty_three" type="checkbox" value="1"
+		onclick="doOpenCheck23(this);">1
+	
+	<input name="twenty_three" type="checkbox" value="2"
+		onclick="doOpenCheck23(this);">2
+
+	<input name="twenty_three" type="checkbox" value="3"
+		onclick="doOpenCheck23(this);">3
+		
+	<input name="twenty_three" type="checkbox" value="4"
+	onclick="doOpenCheck23(this);">4
+
+	<input name="twenty_three" type="checkbox" value="5"
+	onclick="doOpenCheck23(this);">5
+		<br>	
+	<br>
+	<br>
+	
+	#24 끝맺음을 잘하는 편이다.
+	<br>
+	<input name="twenty_four" type="checkbox" value="1"
+		onclick="doOpenCheck24(this);">1
+	
+	<input name="twenty_four" type="checkbox" value="2"
+		onclick="doOpenCheck24(this);">2
+
+	<input name="twenty_four" type="checkbox" value="3"
+		onclick="doOpenCheck24(this);">3
+		
+	<input name="twenty_four" type="checkbox" value="4"
+	onclick="doOpenCheck24(this);">4
+
+	<input name="twenty_four" type="checkbox" value="5"
+	onclick="doOpenCheck24(this);">5
+		<br>	
+	<br>
+	<br>
+	
+	#25 계획이 짜여 있어야 마음이 편하다.
+	<br>
+	<input name="twenty_five" type="checkbox" value="1"
+		onclick="doOpenCheck25(this);">1
+	
+	<input name="twenty_five" type="checkbox" value="2"
+		onclick="doOpenCheck25(this);">2
+
+	<input name="twenty_five" type="checkbox" value="3"
+		onclick="doOpenCheck25(this);">3
+		
+	<input name="twenty_five" type="checkbox" value="4"
+	onclick="doOpenCheck25(this);">4
+
+	<input name="twenty_five" type="checkbox" value="5"
+	onclick="doOpenCheck25(this);">5
+		<br>	
+	<br>
+	<br>
+	
+	#26 깔끔하게 정돈해놓고 지낸다.
+	<br>
+	<input name="twenty_six" type="checkbox" value="1"
+		onclick="doOpenCheck26(this);">1
+	
+	<input name="twenty_six" type="checkbox" value="2"
+		onclick="doOpenCheck26(this);">2
+
+	<input name="twenty_six" type="checkbox" value="3"
+		onclick="doOpenCheck26(this);">3
+		
+	<input name="twenty_six" type="checkbox" value="4"
+	onclick="doOpenCheck26(this);">4
+
+	<input name="twenty_six" type="checkbox" value="5"
+	onclick="doOpenCheck26(this);">5
+		<br>	
+	<br>
+	<br>
+	
+	#27 결론을 잘 내리는 편이다.
+	<br>
+	<input name="twenty_seven" type="checkbox" value="1"
+		onclick="doOpenCheck27(this);">1
+	
+	<input name="twenty_seven" type="checkbox" value="2"
+		onclick="doOpenCheck27(this);">2
+
+	<input name="twenty_seven" type="checkbox" value="3"
+		onclick="doOpenCheck27(this);">3
+		
+	<input name="twenty_seven" type="checkbox" value="4"
+	onclick="doOpenCheck27(this);">4
+
+	<input name="twenty_seven" type="checkbox" value="5"
+	onclick="doOpenCheck27(this);">5
+		<br>	
+	<br>
+	<br>
+	
+	#28 목표가 분명한 편이다.
+	<br>
+	<input name="twenty_eight" type="checkbox" value="1"
+		onclick="doOpenCheck28(this);">1
+	
+	<input name="twenty_eight" type="checkbox" value="2"
+		onclick="doOpenCheck28(this);">2
+
+	<input name="twenty_eight" type="checkbox" value="3"
+		onclick="doOpenCheck28(this);">3
+		
+	<input name="twenty_eight" type="checkbox" value="4"
+	onclick="doOpenCheck28(this);">4
+
+	<input name="twenty_eight" type="checkbox" value="5"
+	onclick="doOpenCheck28(this);">5
+		<br>	
+	<br>
+	<br>
+
+	<button type="button" class="btn mt-4" onclick="mbtiTest();">제출하기</button>
+</form>
+	
+
+	<script>
+		function doOpenCheck1(chk) {
+			var obj = document.getElementsByName("one");
+			for (var i = 0; i < obj.length; i++) {
+				if (obj[i] != chk) {
+					obj[i].checked = false;
+				}
+			}
+		}
+		
+		function doOpenCheck2(chk) {
+			var obj = document.getElementsByName("two");
+			for (var i = 0; i < obj.length; i++) {
+				if (obj[i] != chk) {
+					obj[i].checked = false;
+				}
+			}
+		}
+		
+		function doOpenCheck3(chk) {
+			var obj = document.getElementsByName("three");
+			for (var i = 0; i < obj.length; i++) {
+				if (obj[i] != chk) {
+					obj[i].checked = false;
+				}
+			}
+		}
+		
+		function doOpenCheck4(chk) {
+			var obj = document.getElementsByName("four");
+			for (var i = 0; i < obj.length; i++) {
+				if (obj[i] != chk) {
+					obj[i].checked = false;
+				}
+			}
+		}
+		
+		function doOpenCheck5(chk) {
+			var obj = document.getElementsByName("five");
+			for (var i = 0; i < obj.length; i++) {
+				if (obj[i] != chk) {
+					obj[i].checked = false;
+				}
+			}
+		}
+		
+		function doOpenCheck6(chk) {
+			var obj = document.getElementsByName("six");
+			for (var i = 0; i < obj.length; i++) {
+				if (obj[i] != chk) {
+					obj[i].checked = false;
+				}
+			}
+		}
+		
+		function doOpenCheck7(chk) {
+			var obj = document.getElementsByName("seven");
+			for (var i = 0; i < obj.length; i++) {
+				if (obj[i] != chk) {
+					obj[i].checked = false;
+				}
+			}
+		}
+		
+		function doOpenCheck8(chk) {
+			var obj = document.getElementsByName("eight");
+			for (var i = 0; i < obj.length; i++) {
+				if (obj[i] != chk) {
+					obj[i].checked = false;
+				}
+			}
+		}
+		
+		function doOpenCheck9(chk) {
+			var obj = document.getElementsByName("nine");
+			for (var i = 0; i < obj.length; i++) {
+				if (obj[i] != chk) {
+					obj[i].checked = false;
+				}
+			}
+		}
+		
+		function doOpenCheck10(chk) {
+			var obj = document.getElementsByName("ten");
+			for (var i = 0; i < obj.length; i++) {
+				if (obj[i] != chk) {
+					obj[i].checked = false;
+				}
+			}
+		}
+		
+		function doOpenCheck11(chk) {
+			var obj = document.getElementsByName("eleven");
+			for (var i = 0; i < obj.length; i++) {
+				if (obj[i] != chk) {
+					obj[i].checked = false;
+				}
+			}
+		}
+		
+		function doOpenCheck12(chk) {
+			var obj = document.getElementsByName("twelve");
+			for (var i = 0; i < obj.length; i++) {
+				if (obj[i] != chk) {
+					obj[i].checked = false;
+				}
+			}
+		}
+		
+		function doOpenCheck13(chk) {
+			var obj = document.getElementsByName("thirteen");
+			for (var i = 0; i < obj.length; i++) {
+				if (obj[i] != chk) {
+					obj[i].checked = false;
+				}
+			}
+		}
+		
+		function doOpenCheck14(chk) {
+			var obj = document.getElementsByName("fourteen");
+			for (var i = 0; i < obj.length; i++) {
+				if (obj[i] != chk) {
+					obj[i].checked = false;
+				}
+			}
+		}
+		
+		function doOpenCheck15(chk) {
+			var obj = document.getElementsByName("fifteen");
+			for (var i = 0; i < obj.length; i++) {
+				if (obj[i] != chk) {
+					obj[i].checked = false;
+				}
+			}
+		}
+		
+		function doOpenCheck16(chk) {
+			var obj = document.getElementsByName("sixteen");
+			for (var i = 0; i < obj.length; i++) {
+				if (obj[i] != chk) {
+					obj[i].checked = false;
+				}
+			}
+		}
+		
+		function doOpenCheck17(chk) {
+			var obj = document.getElementsByName("seventeen");
+			for (var i = 0; i < obj.length; i++) {
+				if (obj[i] != chk) {
+					obj[i].checked = false;
+				}
+			}
+		}
+		
+		function doOpenCheck18(chk) {
+			var obj = document.getElementsByName("eightteen");
+			for (var i = 0; i < obj.length; i++) {
+				if (obj[i] != chk) {
+					obj[i].checked = false;
+				}
+			}
+		}
+		
+		function doOpenCheck19(chk) {
+			var obj = document.getElementsByName("nineteen");
+			for (var i = 0; i < obj.length; i++) {
+				if (obj[i] != chk) {
+					obj[i].checked = false;
+				}
+			}
+		}
+		
+		function doOpenCheck20(chk) {
+			var obj = document.getElementsByName("twenty");
+			for (var i = 0; i < obj.length; i++) {
+				if (obj[i] != chk) {
+					obj[i].checked = false;
+				}
+			}
+		}
+		
+		function doOpenCheck21(chk) {
+			var obj = document.getElementsByName("twenty_one");
+			for (var i = 0; i < obj.length; i++) {
+				if (obj[i] != chk) {
+					obj[i].checked = false;
+				}
+			}
+		}
+		
+		function doOpenCheck22(chk) {
+			var obj = document.getElementsByName("twenty_two");
+			for (var i = 0; i < obj.length; i++) {
+				if (obj[i] != chk) {
+					obj[i].checked = false;
+				}
+			}
+		}
+		
+		function doOpenCheck23(chk) {
+			var obj = document.getElementsByName("twenty_three");
+			for (var i = 0; i < obj.length; i++) {
+				if (obj[i] != chk) {
+					obj[i].checked = false;
+				}
+			}
+		}
+		
+		function doOpenCheck24(chk) {
+			var obj = document.getElementsByName("twenty_four");
+			for (var i = 0; i < obj.length; i++) {
+				if (obj[i] != chk) {
+					obj[i].checked = false;
+				}
+			}
+		}
+		
+		function doOpenCheck25(chk) {
+			var obj = document.getElementsByName("twenty_five");
+			for (var i = 0; i < obj.length; i++) {
+				if (obj[i] != chk) {
+					obj[i].checked = false;
+				}
+			}
+		}
+		
+		function doOpenCheck26(chk) {
+			var obj = document.getElementsByName("twenty_six");
+			for (var i = 0; i < obj.length; i++) {
+				if (obj[i] != chk) {
+					obj[i].checked = false;
+				}
+			}
+		}
+		
+		function doOpenCheck27(chk) {
+			var obj = document.getElementsByName("twenty_seven");
+			for (var i = 0; i < obj.length; i++) {
+				if (obj[i] != chk) {
+					obj[i].checked = false;
+				}
+			}
+		}
+		
+		function doOpenCheck28(chk) {
+			var obj = document.getElementsByName("twenty_eight");
+			for (var i = 0; i < obj.length; i++) {
+				if (obj[i] != chk) {
+					obj[i].checked = false;
+				}
+			}
+		}
+		
+		function mbtiTest(){
+			
+			let first = $("input[name='one']:checked").val();
+			let two = $("input[name='two']:checked").val();
+			let three = $("input[name='three']:checked").val();
+			let four = $("input[name='four']:checked").val();
+			let five = $("input[name='five']:checked").val();
+			let six = $("input[name='six']:checked").val();
+			let seven = $("input[name='seven']:checked").val();
+			let eight = $("input[name='eight']:checked").val();
+			let nine = $("input[name='nine']:checked").val();
+			let ten = $("input[name='ten']:checked").val();
+			let eleven = $("input[name='eleven']:checked").val();
+			let twelve = $("input[name='twelve']:checked").val();
+			let thirteen = $("input[name='thirteen']:checked").val();
+			let fourteen = $("input[name='fourteen']:checked").val();
+			let fifteen = $("input[name='fifteen']:checked").val();
+			let sixteen = $("input[name='sixteen']:checked").val();
+			let seventeen = $("input[name='seventeen']:checked").val();
+			let eightteen = $("input[name='eightteen']:checked").val();
+			let nineteen = $("input[name='nineteen']:checked").val();
+			let twenty = $("input[name='twenty']:checked").val();
+			let twenty_one = $("input[name='twenty_one']:checked").val();
+			let twenty_two = $("input[name='twenty_two']:checked").val();
+			let twenty_three = $("input[name='twenty_three']:checked").val();
+			let twenty_four = $("input[name='twenty_four']:checked").val();
+			let twenty_five = $("input[name='twenty_five']:checked").val();
+			let twenty_six = $("input[name='twenty_six']:checked").val();
+			let twenty_seven = $("input[name='twenty_seven']:checked").val();
+			let twenty_eight = $("input[name='twenty_eight']:checked").val();
+
+			let first_piece;
+			let second_piece;
+			let third_piece;
+			let fourth_piece;
+			let master_piece;
+			sessionStorage.setItem("first",first);
+			sessionStorage.setItem("two",two);
+			sessionStorage.setItem("three",three);
+			sessionStorage.setItem("four",four);
+			sessionStorage.setItem("five",five);
+			sessionStorage.setItem("six",six);
+			sessionStorage.setItem("seven",seven);
+			sessionStorage.setItem("eight",eight);
+			sessionStorage.setItem("nine",nine);
+			sessionStorage.setItem("ten",ten);
+			sessionStorage.setItem("eleven",eleven);
+			sessionStorage.setItem("twelve",twelve);
+			sessionStorage.setItem("thirteen",thirteen);
+			sessionStorage.setItem("fourteen",fourteen);
+			sessionStorage.setItem("fifteen",fifteen);
+			sessionStorage.setItem("sixteen",sixteen);
+			sessionStorage.setItem("seventeen",seventeen);
+			sessionStorage.setItem("eightteen",eightteen);
+			sessionStorage.setItem("nineteen",nineteen);
+			sessionStorage.setItem("twenty",twenty);
+			sessionStorage.setItem("twenty_one",twenty_one);
+			sessionStorage.setItem("twenty_two",twenty_two);
+			sessionStorage.setItem("twenty_three",twenty_three);
+			sessionStorage.setItem("twenty_four",twenty_four);
+			sessionStorage.setItem("twenty_five",twenty_five);
+			sessionStorage.setItem("twenty_six",twenty_six);
+			sessionStorage.setItem("twenty_seven",twenty_seven);
+			sessionStorage.setItem("twenty_eight",twenty_eight);
+
+			
+			if(parseInt(first) + parseInt(two) + parseInt(three)+parseInt(four)+parseInt(five)+parseInt(six)+parseInt(seven)<=17){
+				first_piece="I";
+			}
+			else{
+				first_piece = "E";
+			}
+			if(parseInt(eight) + parseInt(nine)+parseInt(ten)+parseInt(eleven)+parseInt(twelve)+parseInt(thirteen)+parseInt(fourteen) <=17){
+				second_piece="N";
+			}
+			else{
+				second_piece="S";
+			}
+			if(parseInt(fifteen) + parseInt(sixteen)+parseInt(seventeen)+parseInt(eightteen)+parseInt(nineteen)+parseInt(twenty)+parseInt(twenty_one)<=17){
+				third_piece = "F";
+			}
+			else{
+				third_piece = "T"
+			}
+			if(parseInt(twenty_two) + parseInt(twenty_three)+parseInt(twenty_four)+parseInt(twenty_five)+parseInt(twenty_six)+parseInt(twenty_seven)+parseInt(twenty_eight)<=17){
+				fourth_piece = "P";
+			}
+			else{
+				fourth_piece = "J";
+			}
+			console.log(first_piece);
+			console.log(second_piece);
+			console.log(third_piece);
+			console.log(fourth_piece);
+			
+			master_piece=first_piece+second_piece+third_piece+fourth_piece;
+			sessionStorage.setItem("master_piece",master_piece); // 최종 결과물
+			console.log(master_piece);			
+			location.href = '/register/mbtiResult' ;
+		}
+	</script>
+</body>
+</html>
