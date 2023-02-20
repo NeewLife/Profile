@@ -1,12 +1,12 @@
 ## 학력
 - 서울성남고등학교 졸업
 - 명지전문대 부동산경영과 졸업
-
+---
 ## 자격증
 - 공인중개사
 - 도배 기능사
 - 1종 보통 운전 면허
-
+---
 ## 아르바이트
 - 유니클로
   - 기간 : 2015.02 ~ 2016.5
@@ -32,14 +32,13 @@
   - 기간 : 2021.12 ~ 2022.05
   - 내용 : 물품 발주 등 사무보조 및 재고 관리
 
-
-
+---
 ## 대외활동
 - AI데이터플랫폼을 활용한 빅데이터 분석전문가 과정 3기
   - 기간 : 2022.06 ~ 2022.12
   - 기관 : 휴먼교육센터
   - 내용 : Python 기반 데이터 분석 및 챗봇만들기 프로젝트, JAVA 기반 웹 개발 및 프로젝트
-
+---
 
  ## 프로젝트
  ### 주택청약 챗봇 프로젝트
@@ -60,3 +59,21 @@
 - [PDF](https://github.com/NeewLife/Profile/blob/main/kakao_chatbot/%EC%B5%9C%EC%A2%85%EB%B0%9C%ED%91%9C_PPT.pdf)
 - [시연영상](https://www.youtube.com/watch?v=b3-sZf48M7U)
 - [메인코드](https://github.com/NeewLife/Profile/blob/main/kakao_chatbot/app/main.py)
+---
+ ### MBTI별 휴식방법 및 채팅 프로젝트
+- 폴더명 : [kakao_chatbot](https://github.com/NeewLife/Profile/tree/main/ChatProject)
+- 기간 : 2022년 10월 24일 ~ 2022년 12월 02일
+- 인원 : 오세영 외 3명
+- 사용언어 : ```Java, JavaScript```
+- 사용툴 : ```STS4```
+- 프레임워크 : ```Spring Boot```
+- DBMS : ```MySQL```
+- 플랫폼 : ```AWS```
+- 라이브러리 : ```lombok```, ```MyBatis``` 등등
+- 내용 
+    - 간단한 MBTI검사 및 MBTI별 맞춤형 휴식방법 소개와 채팅 기능 구현
+    - 서비스1 : 몇가지 설문조사로 MBTI 검사결과 출력
+    - 서비스2 : 사용자의 MBTI를 DB에 입력하여 MBTI별 맞춤 휴식방법 간단히 소개
+    - 서비스3 : 1:1, 1:다수 채팅 기능 구현
+- [PDF](https://github.com/NeewLife/Profile/blob/main/ChatProject/3%EC%A1%B0%20%EC%A0%95%EC%8B%A0%EA%B1%B4%EA%B0%95.pdf)
+- [프로젝트 사이트](http://3.34.185.217:8080/register/main)
