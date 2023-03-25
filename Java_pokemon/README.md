@@ -102,14 +102,6 @@
 </details>
 
 
-
-## 코드
-- [포켓몬 프로젝트 코드 파일](https://github.com/sallyzmk/sallyzmk_project/tree/main/Pokemon/src)
-
-## 소개 자료
-- [PDF]()
-- [게임 시연 영상]()
-
 ---
 # English ver.
 # Java Toy Project
@@ -215,9 +207,3 @@
     </div>
 </details>
 
-## code
-- [Pokemone Project code file](https://github.com/sallyzmk/sallyzmk_project/tree/main/Pokemon/src)  
-
-## Introduction our game
-- [PDF]()
-- [Game Demo Video]()
