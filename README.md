@@ -61,7 +61,7 @@
 - [메인코드](https://github.com/NeewLife/Profile/blob/main/kakao_chatbot/app/main.py)
 
  ### MBTI별 휴식방법 및 채팅 프로젝트
-- 폴더명 : [kakao_chatbot](https://github.com/NeewLife/Profile/tree/main/ChatProject)
+- 폴더명 : [ChatProject](https://github.com/NeewLife/Profile/tree/main/ChatProject)
 - 기간 : 2022년 10월 24일 ~ 2022년 12월 02일
 - 인원 : 오세영 외 3명
 - 사용언어 : ```Java, JavaScript```
@@ -77,3 +77,19 @@
     - 서비스3 : 1:1, 1:다수 채팅 기능 구현
 - [PDF](https://github.com/NeewLife/Profile/blob/main/ChatProject/3%EC%A1%B0%20%EC%A0%95%EC%8B%A0%EA%B1%B4%EA%B0%95.pdf)
 - [프로젝트 사이트](http://3.34.185.217:8080/register/main)
+
+### (개인프로젝트) 배구 동호회 게시판
+
+- 폴더명 : [ToyPJ](https://github.com/NeewLife/ToyPJ)
+- 기간 : 2023년 3월 6일 ~ 진행중
+- 인원 : 오세영 외 0명
+- 사용언어 : `Java, JavaScript`
+- 사용툴 : `IntelliJ Community`
+- 프레임워크 : `Spring Boot`
+- DBMS : `MySQL`
+- 서버  : `Apache Tomcat`
+- 라이브러리 : `lombok`, `MyBatis` , `Spring Security`, `thymeleaf` 등등
+- 내용
+    - 게시판 CRUD 및 회원가입 기능 구현
+    - 회원가입 후 로그인을 진행하면 게시판 사이트로 접근할 수 있음
+    - 자신이 만든 게시판의 글일 경우 수정 및 삭제 버튼 활성화
