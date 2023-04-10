@@ -6,24 +6,22 @@
 
 
  ## 프로젝트
- ### 주택청약 챗봇 프로젝트
-- 폴더명 : [kakao_chatbot](https://github.com/NeewLife/Profile/tree/main/kakao_chatbot)
-- 기간 : 2022년 08월 19일 ~ 2022년 09월 02일
-- 인원 : 오세영 외 3명
-- 사용언어 : ```Python```
-- 사용툴 : ```VSCode```, ```Kakao I open builder```
-- 프레임워크 : ```Flask```
-- DBMS : ```PostgreSQL```
-- 플랫폼 : ```Heroku```
-- 라이브러리 : ```flask```, ```SQLAlchemy```,```Pandas```,```Psycopg2``` 등등
-- 내용 
-    - ```Flask``` 웹 프레임워크와 ```Heroku``` 플랫폼에 배포 및 ```Postgresql```을 사용한 간단한 DB관리
-    - 서비스1 : 수도권 내의 본인이 알고싶은 지역의 이름을 검색하면 해당지역의 현재 기간에 해당하는 공고 출력(지역은 시,군단위)
-    - 서비스2 : 청약의 정보를 유형별로 자체 제작한 간략한 카드와 URL형식으로 제공
-    - 서비스3 : 일반가점제도의 가점제를 계산기형식으로 제공
-- [PDF](https://github.com/NeewLife/Profile/blob/main/kakao_chatbot/%EC%B5%9C%EC%A2%85%EB%B0%9C%ED%91%9C_PPT.pdf)
-- [시연영상](https://www.youtube.com/watch?v=b3-sZf48M7U)
-- [메인코드](https://github.com/NeewLife/Profile/blob/main/kakao_chatbot/app/main.py)
+ ### (개인프로젝트) 배구 동호회 게시판
+
+- 폴더명 : [ToyPJ](https://github.com/NeewLife/ToyPJ)
+- 기간 : 2023년 3월 6일 ~
+- 인원 : 개인
+- 사용언어 : `Java, JavaScript`
+- 사용툴 : `IntelliJ Community`
+- 프레임워크 : `Spring Boot`
+- DBMS : `MySQL`
+- 플랫폼  : `GCP (구글 클라우드 서버)`
+- 라이브러리 : `lombok`, `MyBatis` , `Spring Security`, `thymeleaf` 등등
+- 내용
+    - 게시판 CRUD 및 스프링 시큐리티를 활용한 회원가입, 로그인 기능 구현
+    - 회원가입 후 로그인을 진행하면 게시판 사이트로 접근할 수 있음
+    - 자신이 만든 게시판의 글일 경우 수정 및 삭제 버튼 활성화
+- [프로젝트 사이트](http://34.64.207.213:8081/post/login)
 
  ### MBTI별 휴식방법 및 채팅 프로젝트
 - 폴더명 : [ChatProject](https://github.com/NeewLife/Profile/tree/main/ChatProject)
@@ -43,18 +41,22 @@
 - [PDF](https://github.com/NeewLife/Profile/blob/main/ChatProject/3%EC%A1%B0%20%EC%A0%95%EC%8B%A0%EA%B1%B4%EA%B0%95.pdf)
 - [프로젝트 사이트](http://3.34.185.217:8080/register/main)
 
-### (개인프로젝트) 배구 동호회 게시판
+ ### 주택청약 챗봇 프로젝트
+- 폴더명 : [kakao_chatbot](https://github.com/NeewLife/Profile/tree/main/kakao_chatbot)
+- 기간 : 2022년 08월 19일 ~ 2022년 09월 02일
+- 인원 : 오세영 외 3명
+- 사용언어 : ```Python```
+- 사용툴 : ```VSCode```, ```Kakao I open builder```
+- 프레임워크 : ```Flask```
+- DBMS : ```PostgreSQL```
+- 플랫폼 : ```Heroku```
+- 라이브러리 : ```flask```, ```SQLAlchemy```,```Pandas```,```Psycopg2``` 등등
+- 내용 
+    - ```Flask``` 웹 프레임워크와 ```Heroku``` 플랫폼에 배포 및 ```Postgresql```을 사용한 간단한 DB관리
+    - 서비스1 : 수도권 내의 본인이 알고싶은 지역의 이름을 검색하면 해당지역의 현재 기간에 해당하는 공고 출력(지역은 시,군단위)
+    - 서비스2 : 청약의 정보를 유형별로 자체 제작한 간략한 카드와 URL형식으로 제공
+    - 서비스3 : 일반가점제도의 가점제를 계산기형식으로 제공
+- [PDF](https://github.com/NeewLife/Profile/blob/main/kakao_chatbot/%EC%B5%9C%EC%A2%85%EB%B0%9C%ED%91%9C_PPT.pdf)
+- [시연영상](https://www.youtube.com/watch?v=b3-sZf48M7U)
+- [메인코드](https://github.com/NeewLife/Profile/blob/main/kakao_chatbot/app/main.py)
 
-- 폴더명 : [ToyPJ](https://github.com/NeewLife/ToyPJ)
-- 기간 : 2023년 3월 6일 ~
-- 인원 : 개인
-- 사용언어 : `Java, JavaScript`
-- 사용툴 : `IntelliJ Community`
-- 프레임워크 : `Spring Boot`
-- DBMS : `MySQL`
-- 서버  : `GCP (구글 클라우드 서버)`
-- 라이브러리 : `lombok`, `MyBatis` , `Spring Security`, `thymeleaf` 등등
-- 내용
-    - 게시판 CRUD 및 스프링 시큐리티를 활용한 회원가입, 로그인 기능 구현
-    - 회원가입 후 로그인을 진행하면 게시판 사이트로 접근할 수 있음
-    - 자신이 만든 게시판의 글일 경우 수정 및 삭제 버튼 활성화
