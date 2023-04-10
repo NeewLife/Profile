@@ -38,6 +38,10 @@
     - 서비스1 : 몇가지 설문조사로 MBTI 검사결과 출력
     - 서비스2 : 사용자의 MBTI를 DB에 입력하여 MBTI별 맞춤 휴식방법 간단히 소개
     - 서비스3 : 1:1, 1:다수 채팅 기능 구현
+- 맡은 역할
+    - 로그인 후의 메인페이지 및 휴식방법 페이지 총 2개의 페이지 디자인
+    - Spring Boot를 이용하여 DB에 접근하여서 유저의 MBTI 별로 다른 휴식방법 화면이 나오게 구현
+
 - [PDF](https://github.com/NeewLife/Profile/blob/main/ChatProject/3%EC%A1%B0%20%EC%A0%95%EC%8B%A0%EA%B1%B4%EA%B0%95.pdf)
 - [프로젝트 결과물 확인 링크](http://3.34.185.217:8080/register/main)
 
