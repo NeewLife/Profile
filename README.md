@@ -63,5 +63,4 @@
 - [PDF](https://github.com/NeewLife/Profile/blob/main/kakao_chatbot/%EC%B5%9C%EC%A2%85%EB%B0%9C%ED%91%9C_PPT.pdf)
 - [시연영상](https://www.youtube.com/watch?v=b3-sZf48M7U)
 - 폴더명 : [kakao_chatbot](https://github.com/NeewLife/Profile/tree/main/kakao_chatbot)
-- [메인코드](https://github.com/NeewLife/Profile/blob/main/kakao_chatbot/app/main.py)
 
