@@ -19,8 +19,8 @@
     - 게시판 CRUD 및 스프링 시큐리티를 활용한 회원가입, 로그인 기능 구현
     - 회원가입 후 로그인을 진행하면 게시판 사이트로 접근할 수 있음
     - 자신이 만든 게시판의 글일 경우 수정 및 삭제 버튼 활성화
-- 폴더명 : [ToyPJ](https://github.com/NeewLife/ToyPJ)
-- [프로젝트 결과물 확인 링크](http://34.64.207.213:8081/post/login)
+- 레포지토리 : [ToyPJ](https://github.com/NeewLife/ToyPJ)
+- [프로젝트 결과물 확인 링크](http://34.64.109.105:8081/post/index)
 
 
  ### MBTI별 휴식방법 및 채팅 프로젝트
@@ -42,8 +42,7 @@
     - 로그인 후의 메인페이지 및 휴식방법 페이지 총 2개의 페이지 디자인
     - Spring Boot를 이용하여 DB에 접근하여서 유저의 MBTI 별로 다른 휴식방법 화면이 나오게 구현
 
-- [PDF](https://github.com/NeewLife/Profile/blob/main/ChatProject/3%EC%A1%B0%20%EC%A0%95%EC%8B%A0%EA%B1%B4%EA%B0%95.pdf)
-- [프로젝트 결과물 확인 링크](http://3.34.185.217:8080/register/main)
+- [프로젝트 소개 PPT](https://github.com/NeewLife/Profile/blob/main/ChatProject/3%EC%A1%B0%20%EC%A0%95%EC%8B%A0%EA%B1%B4%EA%B0%95.pdf)
 
 
  ### 주택청약 챗봇 프로젝트
@@ -66,5 +65,5 @@
 
 - [PDF](https://github.com/NeewLife/Profile/blob/main/kakao_chatbot/%EC%B5%9C%EC%A2%85%EB%B0%9C%ED%91%9C_PPT.pdf)
 - [시연영상](https://www.youtube.com/watch?v=b3-sZf48M7U)
-- 폴더명 : [kakao_chatbot](https://github.com/NeewLife/Profile/tree/main/kakao_chatbot)
+- 레포지토리 : [kakao_chatbot](https://github.com/NeewLife/Profile/tree/main/kakao_chatbot)
 
