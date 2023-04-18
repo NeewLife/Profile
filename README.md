@@ -63,7 +63,7 @@
     - 전체 기획
     - 시나리오 구상 및 데이터 수집
 
-- [PDF](https://github.com/NeewLife/Profile/blob/main/kakao_chatbot/%EC%B5%9C%EC%A2%85%EB%B0%9C%ED%91%9C_PPT.pdf)
+- [프로젝트 소개 PPT](https://github.com/NeewLife/Profile/blob/main/kakao_chatbot/%EC%B5%9C%EC%A2%85%EB%B0%9C%ED%91%9C_PPT.pdf)
 - [시연영상](https://www.youtube.com/watch?v=b3-sZf48M7U)
 - 레포지토리 : [kakao_chatbot](https://github.com/NeewLife/Profile/tree/main/kakao_chatbot)
 
