@@ -24,7 +24,6 @@
 
 
  ### MBTI별 휴식방법 및 채팅 프로젝트
-- 폴더명 : [ChatProject](https://github.com/NeewLife/Profile/tree/main/ChatProject)
 - 기간 : 2022년 10월 24일 ~ 2022년 12월 02일
 - 인원 : 오세영 외 3명
 - 사용언어 : ```Java, JavaScript```
@@ -42,6 +41,7 @@
     - 로그인 후의 메인페이지 및 휴식방법 페이지 총 2개의 페이지 디자인
     - Spring Boot를 이용하여 DB에 접근하여서 유저의 MBTI 별로 다른 휴식방법 화면이 나오게 구현
 
+- 레포지토리 : [ChatProject](https://github.com/NeewLife/Profile/tree/main/ChatProject)
 - [프로젝트 소개 PPT](https://github.com/NeewLife/Profile/blob/main/ChatProject/3%EC%A1%B0%20%EC%A0%95%EC%8B%A0%EA%B1%B4%EA%B0%95.pdf)
 
 
