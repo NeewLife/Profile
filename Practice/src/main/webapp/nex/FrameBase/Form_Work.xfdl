@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="Form_Work" width="1280" height="720" titletext="Form_Work">
+    <Layouts>
+      <Layout width="1280" height="720" screenid="Desktop_screen">
+        <Button id="Button00" taborder="0" text="조회" left="653" top="60" width="74" height="36" onclick="Button00_onclick"/>
+        <Grid id="Grid00" taborder="1" left="143" top="180" width="637" height="490" binddataset="Dataset00">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row band="head" size="24"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="seq"/>
+                <Cell col="1" text="name"/>
+                <Cell col="2" text="id"/>
+                <Cell col="3" text="title"/>
+                <Cell col="4" text="content"/>
+                <Cell col="5" text="regDate"/>
+                <Cell col="6" text="uptDate"/>
+                <Cell col="7" text="count"/>
+              </Band>
+              <Band id="body">
+                <Cell text="bind:seq"/>
+                <Cell col="1" text="bind:name"/>
+                <Cell col="2" text="bind:id"/>
+                <Cell col="3" text="bind:title"/>
+                <Cell col="4" text="bind:content"/>
+                <Cell col="5" text="bind:regDate"/>
+                <Cell col="6" text="bind:uptDate"/>
+                <Cell col="7" text="bind:count"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Div id="Div00" taborder="2" text="Div00" left="142" top="44" width="488" height="124">
+          <Layouts>
+            <Layout>
+              <Calendar id="startDate" taborder="0" left="82" top="71" width="133" height="40"/>
+              <Calendar id="endDate" taborder="1" left="338" top="71" width="130" height="40"/>
+              <Static id="Date01" taborder="2" text="시작날짜" left="1" top="66" width="69" height="43" onclick="Div00_startDate_onclick"/>
+              <Static id="Date02" taborder="3" text="끝 날짜" left="262" top="71" width="86" height="34" onclick="Div00_endDate_onclick"/>
+              <Combo id="searchType" taborder="4" text="선택" left="18" top="18" width="119" height="36" onitemchanged="Div00_Combo00_onitemchanged" innerdataset="innerdataset" codecolumn="codecolumn" datacolumn="datacolumn" index="0" value="">
+                <Dataset id="innerdataset">
+                  <ColumnInfo>
+                    <Column id="codecolumn" size="256"/>
+                    <Column id="datacolumn" size="256"/>
+                  </ColumnInfo>
+                  <Rows>
+                    <Row>
+                      <Col id="datacolumn">선택</Col>
+                      <Col id="codecolumn">null</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">title</Col>
+                      <Col id="datacolumn">제목</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">content</Col>
+                      <Col id="datacolumn">내용</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">titleAndContent</Col>
+                      <Col id="datacolumn">제목+내용</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">writer</Col>
+                      <Col id="datacolumn">작성자</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">null</Col>
+                      <Col id="datacolumn">선택</Col>
+                    </Row>
+                  </Rows>
+                </Dataset>
+              </Combo>
+              <TextArea id="keyword" taborder="5" left="174" top="18" width="236" height="38"/>
+            </Layout>
+          </Layouts>
+        </Div>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.1"><![CDATA[
+this.Button00_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	var row = this.searchData.addRow();
+	var searchType = this.Div00.form.searchType.value
+	var keyword = this.Div00.form.keyword.value
+	var stDate = this.Div00.form.startDate.value
+	var enDate = this.Div00.form.endDate.value
+	var startDate = stDate.substr(0,4) + '-' + stDate.substr(4,2) + '-' + stDate.substr(6,2);
+	var endDate = enDate.substr(0,4) + '-' + enDate.substr(4,2) + '-' + enDate.substr(6,2);
+	
+	alert('startDate = ' + startDate);
+	alert('endDate = ' + endDate);
+	this.searchData.setColumn(0, "searchType", searchType);
+	this.searchData.setColumn(0, "keyword", keyword);
+	this.searchData.setColumn(0, "startDate", startDate);
+	this.searchData.setColumn(0, "endDate", endDate);
+	this.transaction('send','http://localhost:8080/nexa/post',"inDataset=searchData","Dataset00=outDataset","","deleteRow");
+};
+
+this.deleteRow = function(){
+	this.searchData.deleteRow();
+}]]></Script>
+    <Objects>
+      <Dataset id="Dataset00">
+        <ColumnInfo>
+          <Column id="seq" type="STRING" size="256"/>
+          <Column id="name" type="STRING" size="256"/>
+          <Column id="id" type="STRING" size="256"/>
+          <Column id="title" type="STRING" size="256"/>
+          <Column id="content" type="STRING" size="256"/>
+          <Column id="regDate" type="STRING" size="256"/>
+          <Column id="uptDate" type="STRING" size="256"/>
+          <Column id="count" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="searchData">
+        <ColumnInfo>
+          <Column id="searchType" type="STRING" size="256"/>
+          <Column id="keyword" type="STRING" size="256"/>
+          <Column id="startDate" type="STRING" size="256"/>
+          <Column id="endDate" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+  </Form>
+</FDL>

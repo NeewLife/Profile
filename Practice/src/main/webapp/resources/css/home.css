@@ -1,0 +1,7 @@
+table{
+ 	width: 1000px;    
+ 	margin-top : 20px;
+}
+
+tr, th, td{ border-style: double;}
+th{	text-align: center;}

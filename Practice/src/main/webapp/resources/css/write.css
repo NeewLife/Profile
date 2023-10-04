@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway:400,700');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0; 
+  font-family: Raleway, sans-serif;
+}
+
+body {
+  background: linear-gradient(90deg, #C7C5F4, #776BCC);   
+}
+
+label{padding: 8px;}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.screen {   
+	padding: 10px;
+	background: #fff;   
+	position: relative; 
+	height: 660px;
+	width: 840px; 
+	box-shadow: 0px 0px 24px #5C5696;
+	border-radius: 10px;
+}
+
+.chkBoxTable{
+	width: 50%;
+	display:grid;
+	place-items: center;
+	margin: auto;
+}
+
+.formBox{
+	display:grid;
+	place-items: center;
+	padding-top: 20px;
+	padding-bottom: 30px;
+}
+
+fieldset>div{
+	display: inline-block;
+	width: 60px;
+}
+
+#submitButton{text-align: center;}

@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="mapper">
+  	
+  	<sql id="board">
+  		POST_ID AS postId
+  		,TITLE AS title
+  		,WRITER_PK_NUM AS writerPkNum
+  		,(SELECT USER_NAME FROM SY_MEMBER sm WHERE sb.WRITER_PK_NUM = sm.ID) AS writer
+  		,WRITE_DATE AS writeDate
+  		,CONTENT AS content
+  		,CONFIRM_DATE AS confirmDate
+  		,(SELECT USER_NAME FROM SY_MEMBER sm WHERE sb.CONFIRM_PERSON = sm.ID) AS confirmPerson
+		,(SELECT USER_NAME FROM SY_MEMBER sm WHERE sb.PROXY_CONFIRM_PERSON = sm.ID) AS proxyConfirmPerson
+  		,CONFIRM_STATUS AS confirmStatus
+  	</sql>
+
+	<sql id="decodeRank">
+		DECODE(USER_RANK, 'EMP', '사원', 'VI', '대리', 'EXA', '과장', 'DH', '부장')
+	</sql>
+  	
+  	<resultMap type="map" id="history">
+  		<result column="POST_ID" property="postId"/>
+        <result column="SEQ" property="seq"/>
+        <result column="CONFIRM_DATE" property="confirmDate"/>
+        <result column="CONFIRM_PERSON" property="confirmPerson"/>
+        <result column="CONFIRM_STATUS" property="confirmStatus"/>
+        <result column="PROXY_CONFIRM_PERSON" property="proxyConfirmPerson"/>
+  	</resultMap>
+  	
+  	<resultMap type="map" id="nonProxy">
+  		<result column="ID" property="id"/>
+        <result column="USER_NAME" property="userName"/>
+        <result column="USER_RANK" property="userRank"/>
+        <result column="USER_RANK_KR" property="userRankKR"/>
+  	</resultMap>
+  	
+  	<!-- 게시글 검색 -->
+    <sql id="search">
+        <!-- 검색 키워드가 있을 때 -->
+        <if test="searchVO.keyword != null and searchVO.keyword != ''">
+            <choose>
+                <!-- 검색 유형이 있을 때 -->
+                <when test="searchVO.searchType != null and searchVO.searchType != ''">
+                    <choose>
+                        <when test="searchVO.searchType == 'writer'">
+                            AND (SELECT USER_NAME FROM SY_MEMBER sm WHERE sb.WRITER_PK_NUM = sm.ID) LIKE '%'||#{searchVO.keyword}||'%'
+                        </when>
+                        <when test="searchVO.searchType == 'authPeople'">
+                            AND (SELECT USER_NAME FROM SY_MEMBER sm WHERE sb.CONFIRM_PERSON = sm.ID) LIKE '%'||#{searchVO.keyword}||'%'
+                        </when>
+                        <when test="searchVO.searchType == 'titleContent'">
+                            AND (
+			                    TITLE LIKE '%'||#{searchVO.keyword}||'%'
+			                    OR CONTENT LIKE '%'||#{searchVO.keyword}||'%'
+		                    )
+                        </when>
+                    </choose>
+                </when>
+            </choose>
+        </if>
+		<if test="searchVO.authType != null and authType != ''">
+			<choose>
+				<when test="searchVO.authType == 'TEM'">
+					AND sb.CONFIRM_STATUS LIKE 'TEM'
+				</when>
+				<when test="searchVO.authType == 'WAIT'">
+					AND sb.CONFIRM_STATUS LIKE 'WAIT'
+				</when>
+				<when test="searchVO.authType == 'ING'">
+					AND sb.CONFIRM_STATUS LIKE 'ING'
+				</when>
+				<when test="searchVO.authType == 'FIN'">
+					AND sb.CONFIRM_STATUS LIKE 'FIN'
+				</when>
+				<when test="searchVO.authType == 'REJ'">
+					AND sb.CONFIRM_STATUS LIKE 'REJ'
+				</when>
+			</choose>
+		</if>
+        <!-- 날짜 검색이 있을 때 -->
+        <if test="searchVO.startDate != null and searchVO.startDate != ''">
+        	and to_char(sb.WRITE_DATE, 'yyyy-MM-dd') between #{searchVO.startDate} and #{searchVO.endDate}
+        </if>
+    </sql>
+    
+    <sql id="rankValidation">
+    	<!-- 부장이면 전부다 보게 -->
+    	<if test="userRank != 'DH'">
+    		<choose>
+    			<!-- 일반 사원일 때 -->
+    			<when test="userRank != 'EXA'">
+	    			AND sb.WRITER_PK_NUM = #{id}
+	    		</when>
+ 	    		<!-- 과장일 때 결재대기 or 반려된 것중 결재자가 본인이거나 없는 경우 -->
+	    		<otherwise>
+	    			AND (
+	    			  (sb.CONFIRM_STATUS = 'WAIT'
+						OR sb.CONFIRM_STATUS = 'ING'
+						OR sb.CONFIRM_STATUS = 'REJ')
+					AND ((SELECT USER_NAME FROM SY_MEMBER sm WHERE sb.CONFIRM_PERSON = sm.ID ) = #{userName}
+						OR sb.CONFIRM_PERSON IS NULL
+						)
+	    			) 
+	    			OR sb.WRITER_PK_NUM = #{id}
+					OR sb.PROXY_CONFIRM_PERSON = #{id}
+	    		</otherwise>
+    		</choose>
+    	</if>
+    </sql>
+
+
+  	<!-- 여기부터 결재시스템 쿼리문 -->
+  	<select id="login" resultType="com.com.com.Authorization.VO.MemberVO">
+  		SELECT ID AS id
+  			 , USER_ID AS userId
+  			 , USER_PW AS userPw
+  			 , USER_NAME AS userName
+  			 , USER_RANK AS userRank
+			 , <include refid="decodeRank" /> AS userRankKR
+		FROM sy_member
+		WHERE
+			USER_ID = #{loginId}
+  	</select>
+  	
+  	<select id="hasProxy" resultType="int">
+		SELECT COUNT(ID)
+		FROM SY_PROXY
+		WHERE ID = #{id}
+		AND END_DATE > TO_DATE(#{now}, 'yyyy-mm-dd hh24:mi:ss')
+	</select>
+	
+	<select id="proxy" resultType="com.com.com.Authorization.VO.ProxyResponse">
+		SELECT
+			   PROXY_ID AS proxyId
+			 , (SELECT USER_NAME
+				FROM SY_MEMBER sm
+				WHERE sp.PROXY_ID = sm.ID) proxyName
+			 , (SELECT USER_RANK
+				FROM SY_MEMBER sm
+				WHERE sp.PROXY_ID = sm.ID) proxyRank
+			 ,	(SELECT <include refid="decodeRank" />
+				FROM SY_MEMBER sm
+				WHERE sp.PROXY_ID = sm.ID) proxyRankKR
+			 , ST_DATE AS stDate
+			 , END_DATE AS endDate
+		FROM SY_PROXY sp
+		WHERE ID = #{id}
+			AND END_DATE > CURRENT_DATE
+	</select>
+	
+	<select id="nonProxy" resultMap="nonProxy">
+		SELECT sm.ID
+			 , <include refid="decodeRank" /> USER_RANK_KR
+			 , sm.USER_RANK
+			 , sm.USER_NAME
+		FROM SY_MEMBER sm
+		LEFT JOIN (
+			SELECT ID
+			FROM SY_PROXY
+			WHERE END_DATE > TO_DATE(#{nowTime}, 'YYYY-MM-DD hh24:mi:ss' )
+			) sp
+		ON sm.ID = sp.ID 
+		WHERE sp.ID IS NULL
+		<choose>
+			<when test="userRank == 'EXA'">
+				AND sm.USER_RANK != 'EXA'
+				AND sm.USER_RANK != 'DH'
+			</when>
+			<when test="userRank == 'DH'">
+				AND sm.USER_RANK != 'DH'
+			</when>
+		</choose>
+		ORDER BY ID ASC
+	</select>
+  	
+  	<select id="list" parameterType="java.util.Map" resultType="com.com.com.Authorization.VO.BoardResponse">
+  		SELECT 
+  			<include refid="board" />
+		FROM SY_BOARD sb
+		WHERE 1=1
+			<include refid="search" />
+			<include refid="rankValidation" />
+		ORDER BY sb.POST_ID
+  	</select>
+  	
+  	<select id="view" resultType="com.com.com.Authorization.VO.BoardResponse">
+  		SELECT 
+  			<include refid="board" />
+		FROM SY_BOARD sb
+			INNER JOIN SY_MEMBER sm 
+			ON sb.WRITER_PK_NUM = sm.ID 
+		WHERE sb.POST_ID = #{postId}
+  	</select>
+  	
+  	<select id="history" resultMap="history">
+  		SELECT
+			POST_ID
+			, SEQ
+			, CONFIRM_DATE
+			, (SELECT USER_NAME FROM SY_MEMBER sm WHERE h.CONFIRM_PERSON = sm.ID) CONFIRM_PERSON
+			, CONFIRM_STATUS
+			, (SELECT USER_NAME FROM SY_MEMBER sm WHERE h.PROXY_CONFIRM_PERSON = sm.ID) PROXY_CONFIRM_PERSON
+		FROM SY_HISTORY h
+		WHERE POST_ID = #{postId}
+		ORDER BY seq
+  	</select>
+  	
+  	<select id="lastSeq" resultType="int">
+  		SELECT NVL(MAX(POST_ID), 0) + 1 AS postId
+  		FROM SY_BOARD
+  	</select>
+  	
+  	<insert id="save">
+  		INSERT INTO SY_BOARD (
+			POST_ID
+			, TITLE
+			, WRITER_PK_NUM
+			, WRITE_DATE
+			, CONTENT
+			, CONFIRM_DATE
+			, CONFIRM_PERSON
+			, CONFIRM_STATUS
+			, PROXY_CONFIRM_PERSON
+  		)
+  		VALUES (
+			(SELECT NVL(MAX(POST_ID), 0) + 1 AS postId FROM SY_BOARD)
+			, #{title}
+			, #{writerPkNum}
+			, sysdate
+			, #{content}
+			, NULL
+			, NULL
+			, #{confirmStatus}
+			, NULL
+  		)
+  	</insert>
+  	
+  	<insert id="creHistory">
+  		INSERT INTO SY_HISTORY(
+  			POST_ID
+  			, SEQ
+  			, CONFIRM_DATE
+  			, CONFIRM_PERSON
+  			, CONFIRM_STATUS
+			, PROXY_CONFIRM_PERSON
+  		)
+  		VALUES (
+  			#{postId}
+  			, (
+  				SELECT NVL(MAX(SEQ), 0) 
+  				FROM SY_HISTORY 
+  				WHERE POST_ID = #{postId}
+ 			  ) + 1
+  			, sysdate
+  			, #{confirmPerson, jdbcType=VARCHAR}
+  			, #{confirmStatus}
+			, #{proxyConfirmPerson, jdbcType=VARCHAR}
+  		)
+	</insert>
+  	
+  	<insert id="giveProxy">
+  		INSERT INTO SY_PROXY (
+  			ID
+			, ST_DATE
+			, END_DATE
+			, PROXY_ID
+		)
+		VALUES(
+			#{id}
+			, sysdate
+			, sysdate + 1
+			, #{proxyId}
+		)
+  	</insert>
+  	
+  	<update id="update">
+  		UPDATE SY_BOARD
+  		SET
+  			WRITE_DATE = sysdate
+  			, TITLE = #{title}
+  			, CONTENT = #{content}
+  			, CONFIRM_STATUS = #{confirmStatus}
+  			, CONFIRM_DATE = ''
+  			, CONFIRM_PERSON = ''
+			, PROXY_CONFIRM_PERSON = ''
+		WHERE POST_ID = #{postId}
+  	</update>
+  	
+  	<update id="reject">
+  		UPDATE SY_BOARD
+  		SET
+  			CONFIRM_DATE = sysdate
+  			, CONFIRM_PERSON = #{confirmPerson}
+  			, CONFIRM_STATUS = 'REJ'
+			, PROXY_CONFIRM_PERSON = #{proxyConfirmPerson, jdbcType=INTEGER}
+		WHERE POST_ID = #{postId}
+  	</update>
+  	
+  	<update id="confirm">
+  		UPDATE SY_BOARD
+  		SET
+  			CONFIRM_DATE = sysdate
+  			, CONFIRM_PERSON = #{confirmPerson}
+  			, CONFIRM_STATUS = #{confirmStatus}
+			, PROXY_CONFIRM_PERSON = #{proxyConfirmPerson, jdbcType=INTEGER}
+		WHERE POST_ID = #{postId}
+  	</update>
+  	
+  </mapper>
