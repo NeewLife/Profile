@@ -4,8 +4,26 @@
   - 기관 : 휴먼교육센터
   - 내용 : Python 기반 데이터 분석 및 챗봇만들기 프로젝트, JAVA 기반 웹 개발 및 프로젝트
 
+- 일선솔루션 인턴
+  - 기간 : 2023.07 ~ 2023.10
+  - 회사명 : 일선솔루션(주)
+  - 주 업무 : Java 및 Spring 을 활용한 시스템 구축
+<br>
 
  ## 프로젝트
+ ### 결재시스템 예제 구현
+- 기간 : 2023년 8월 23일 ~ 2023년 9월 12일
+- 인원 : 개인
+- 사용언어 : `Java, JavaScript`
+- 프레임워크 : `Spring Legacy`
+- DB : `Oracle 11g`
+- 라이브러리 : `lombok`, `MyBatis`
+- 내용
+  - 부하직급의 사원이 상사에게 결재요청 및 직급별 게시글 조회 권한 차별화
+  - 상사는 결재 및 반려 가능
+- 레포지토리 : [Practice] (https://github.com/NeewLife/Practice)
+  <br>
+ 
  ### (개인프로젝트) 배구 동호회 게시판
 - 기간 : 2023년 3월 6일 ~ 2023년 4월 17일
 - 인원 : 개인
@@ -22,6 +40,7 @@
 - 레포지토리 : [ToyPJ](https://github.com/NeewLife/ToyPJ)
 - [프로젝트 결과물 확인 링크](http://13.125.155.96:8081/post/index)
 
+<br>
 
  ### MBTI별 휴식방법 및 채팅 프로젝트
 - 기간 : 2022년 10월 24일 ~ 2022년 12월 02일
@@ -43,7 +62,7 @@
 
 - 레포지토리 : [ChatProject](https://github.com/NeewLife/Profile/tree/main/ChatProject)
 - [프로젝트 소개 PPT](https://github.com/NeewLife/Profile/blob/main/ChatProject/3%EC%A1%B0%20%EC%A0%95%EC%8B%A0%EA%B1%B4%EA%B0%95.pdf)
-
+<br>
 
  ### 주택청약 챗봇 프로젝트
 - 기간 : 2022년 08월 19일 ~ 2022년 09월 02일
