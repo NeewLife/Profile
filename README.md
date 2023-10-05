@@ -21,7 +21,7 @@
 - 내용
   - 부하직급의 사원이 상사에게 결재요청 및 직급별 게시글 조회 권한 차별화
   - 상사는 결재 및 반려 가능
-- 레포지토리 : [Practice] (https://github.com/NeewLife/Practice)
+- 레포지토리 : [Practice](https://github.com/NeewLife/Practice)
   <br>
  
  ### (개인프로젝트) 배구 동호회 게시판
