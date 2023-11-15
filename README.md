@@ -24,7 +24,7 @@
    - 내 위치 주변이나, 검색을 통해 야외농구장의 위치를 찾을 수 있다.
  - 레포지토리 : [modubasketball](https://github.com/NeewLife/modubasketball)
    
-   <br>
+<br>
    
  ### 결재시스템 예제 구현
 - 기간 : 2023년 8월 23일 ~ 2023년 9월 12일
@@ -38,7 +38,7 @@
   - 상사는 결재 및 반려 가능
 - 레포지토리 : [Practice](https://github.com/NeewLife/Practice)
   
-  <br>
+<br>
  
  ### (개인프로젝트) 배구 동호회 게시판
 - 기간 : 2023년 3월 6일 ~ 2023년 4월 17일
