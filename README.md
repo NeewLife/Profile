@@ -23,6 +23,7 @@
    - 유저들은 사이트를 통해서 야외농구장의 위치를 찾을 수 있다.
    - 내 위치 주변이나, 검색을 통해 야외농구장의 위치를 찾을 수 있다.
  - 레포지토리 : [modubasketball](https://github.com/NeewLife/modubasketball)
+   
    <br>
    
  ### 결재시스템 예제 구현
@@ -36,6 +37,7 @@
   - 부하직급의 사원이 상사에게 결재요청 및 직급별 게시글 조회 권한 차별화
   - 상사는 결재 및 반려 가능
 - 레포지토리 : [Practice](https://github.com/NeewLife/Practice)
+  
   <br>
  
  ### (개인프로젝트) 배구 동호회 게시판
@@ -76,6 +78,7 @@
 
 - 레포지토리 : [ChatProject](https://github.com/NeewLife/Profile/tree/main/ChatProject)
 - [프로젝트 소개 PPT](https://github.com/NeewLife/Profile/blob/main/ChatProject/3%EC%A1%B0%20%EC%A0%95%EC%8B%A0%EA%B1%B4%EA%B0%95.pdf)
+  
 <br>
 
  ### 주택청약 챗봇 프로젝트
